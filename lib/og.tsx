@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // Column by column, bottom to top: the same opening the hero board plays.
 const DISCS: string[][] = [[], [], ["i", "c"], ["i", "c"], ["c", "i"], [], []];
-const COLOUR: Record<string, string> = { i: "#0b1410", c: "#ff4b3e" };
+const COLOUR: Record<string, string> = { i: "#1a1815", c: "#ff4b3e" };
 
 export function ogImage(title: string, subtitle: string) {
   const rows = [5, 4, 3, 2, 1, 0];
@@ -16,16 +16,16 @@ export function ogImage(title: string, subtitle: string) {
           padding: 72,
           alignItems: "center",
           justifyContent: "space-between",
-          background: "#eef5f1",
-          color: "#06100c"
+          background: "#f5f2ec",
+          color: "#1a1815"
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", width: 600 }}>
-          <div style={{ fontSize: 32, color: "#465a51" }}>Joost Schreuders</div>
+          <div style={{ fontSize: 32, color: "#5f5a52" }}>Joost Schreuders</div>
           <div style={{ fontSize: title.length > 24 ? 62 : 88, fontWeight: 700, lineHeight: 1.05, marginTop: 24 }}>
             {title}
           </div>
-          <div style={{ fontSize: 34, color: "#465a51", marginTop: 28 }}>{subtitle}</div>
+          <div style={{ fontSize: 34, color: "#5f5a52", marginTop: 28 }}>{subtitle}</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", padding: 18, background: "#71ffc5", borderRadius: 30 }}>
           {rows.map((r) => (
@@ -39,7 +39,7 @@ export function ogImage(title: string, subtitle: string) {
                     height: 62,
                     margin: 3,
                     borderRadius: 31,
-                    background: col[r] ? COLOUR[col[r]] : "#eef5f1"
+                    background: col[r] ? COLOUR[col[r]] : "#f5f2ec"
                   }}
                 />
               ))}

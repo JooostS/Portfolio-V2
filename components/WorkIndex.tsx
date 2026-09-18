@@ -40,11 +40,7 @@ export default function WorkIndex({ projects }: { projects: Project[] }) {
         ))}
       </ul>
 
-      <div
-        className="index-preview"
-        aria-hidden="true"
-        style={{ "--tint": projects[active].tint } as React.CSSProperties}
-      >
+      <div className="index-preview" aria-hidden="true">
         <div className="frame">
           {projects.map((p, i) => (
             <div className="slide" key={p.slug} data-active={i === active || undefined}>

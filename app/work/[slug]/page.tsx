@@ -29,7 +29,6 @@ export default async function WorkPage({ params }: Props) {
 
   return (
     <>
-      <div className="stage" data-tone-section="hero">
       <Header />
       <main className="wrap case">
         <Link href="/#work" className="back">All work</Link>
@@ -103,7 +102,6 @@ export default async function WorkPage({ params }: Props) {
           <Link href={`/work/${next.slug}`}>{next.title}</Link>
         </nav>
       </main>
-      </div>
       <Contact />
     </>
   );

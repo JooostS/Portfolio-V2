@@ -11,7 +11,6 @@ export type Project = {
   liveLabel: string;
   embed: boolean;
   image: Shot | null;
-  tint: string;
 };
 
 export type Shot = { src: string; width: number; height: number; alt: string };
@@ -21,7 +20,6 @@ type Curated = Pick<Project, "title" | "kind" | "summary" | "features" | "stack"
   liveLabel?: string;
   embed?: boolean;
   image?: Shot;
-  tint?: string;
 };
 
 type Repo = {
@@ -42,7 +40,6 @@ const USER = "JooostS";
 // using their GitHub description.
 const CURATED: Record<string, Curated> = {
   "connect-4": {
-    tint: "#3b5bdb",
     image: { src: "/work/connect-4.png", width: 1920, height: 1200, alt: "The 4-op-een-rij board, an empty grid with a score panel and keyboard hints, all in Dutch." },
     title: "4-op-een-rij",
     kind: "Progressive web app",
@@ -59,7 +56,6 @@ const CURATED: Record<string, Curated> = {
     embed: true
   },
   "location-pwa": {
-    tint: "#f2a51c",
     image: { src: "/work/location-pwa.png", width: 1000, height: 1440, alt: "Location Guide showing a status card that reads Searching for GPS." },
     title: "Location Guide",
     kind: "Progressive web app",
@@ -74,7 +70,6 @@ const CURATED: Record<string, Curated> = {
     liveLabel: "Open the app"
   },
   "weather-app": {
-    tint: "#12a38c",
     image: { src: "/work/weather-app.png", width: 1920, height: 1200, alt: "Weather App in dark mode showing current conditions for Amsterdam." },
     title: "Weather App",
     kind: "Web app",
@@ -90,7 +85,6 @@ const CURATED: Record<string, Curated> = {
     liveLabel: "Open the app"
   },
   "network-monitor": {
-    tint: "#1b73c9",
     title: "Network Monitor",
     kind: "Desktop app",
     summary: "A Python dashboard that scans your local network, pings devices and charts latency.",
@@ -104,7 +98,6 @@ const CURATED: Record<string, Curated> = {
     stack: ["Python", "CustomTkinter", "Matplotlib"]
   },
   "yt-adblocker": {
-    tint: "#e5322d",
     title: "YouTube ad skipper",
     kind: "Userscript",
     summary: "Skips YouTube ads automatically and closes the adblock warning popup.",
@@ -118,7 +111,6 @@ const CURATED: Record<string, Curated> = {
     liveLabel: "Install on Greasy Fork"
   },
   portfolio: {
-    tint: "#19e08a",
     image: { src: "/work/portfolio.png", width: 1920, height: 1200, alt: "The jooosts.online home page: a short bio and a View My Work button on a dark starry background." },
     title: "jooosts.online",
     kind: "Website",
@@ -204,8 +196,7 @@ async function toProject(repo: Repo): Promise<Project> {
     liveUrl,
     liveLabel: curated?.liveLabel ?? "Open the project",
     embed: Boolean(curated?.embed && liveUrl && status?.framable),
-    image: curated?.image ?? null,
-    tint: curated?.tint ?? "#8a9b93"
+    image: curated?.image ?? null
   };
 }
 
@@ -215,11 +206,6 @@ export async function getProjects(): Promise<Project[]> {
     .filter((r) => CURATED[r.name.toLowerCase()] || r.description || r.homepage)
     .sort((a, b) => (a.pushed_at < b.pushed_at ? 1 : -1));
   return Promise.all(repos.map(toProject));
-}
-
-export async function getLatestPush(): Promise<string> {
-  const repos = (await fetchRepos()).filter((r) => !r.fork);
-  return repos.map((r) => r.pushed_at).sort().pop() ?? new Date().toISOString();
 }
 
 export const formatList = (items: string[]) =>

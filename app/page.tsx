@@ -9,16 +9,15 @@ export default async function Page() {
 
   return (
     <>
-      <div className="stage fill" data-tone-section="hero">
+      <div className="stage fill">
         <Header />
         <main>
           <section className="wrap hero">
             <div>
-              <h1>Small apps, useful tools and the occasional game.</h1>
+              <h1>I&apos;m Joost, a software student from Zuid-Holland.</h1>
               <p className="lede">
-                I&apos;m Joost Schreuders, a student software developer from Zuid-Holland. The board is
-                Connect Four, like the one I built for school, and this one plays back. Everything else
-                I&apos;ve made is below.
+                I build small web apps and desktop tools. The board is Connect Four, like the one I made
+                for school, and this one plays back. Try to beat it, then have a look at the rest of my work.
               </p>
             </div>
             <Board />
@@ -26,37 +25,24 @@ export default async function Page() {
         </main>
       </div>
 
-      <section id="work" className="wrap section" data-tone-section="work">
+      <section id="work" className="wrap section">
         <h2 className="section-title">Work</h2>
         <WorkIndex projects={projects} />
       </section>
 
-      <section id="about" data-tone-section="about">
-        <div className="wrap section about">
-          <h2 className="section-title">About</h2>
-          <div>
-            <p className="about-lead">
-              I&apos;m a student software developer from Zuid-Holland, learning C#, APIs and JavaScript.
-            </p>
-            <p>
-              I&apos;ve been publishing code on GitHub since 2024, and right now I&apos;m exploring web
-              development, UI/UX and Linux. Away from the keyboard I&apos;m usually gaming or asleep.
-            </p>
-            <dl className="skills">
-              <div>
-                <dt>Frontend</dt>
-                <dd>HTML, CSS, JavaScript, responsive design, UI/UX implementation</dd>
-              </div>
-              <div>
-                <dt>Backend</dt>
-                <dd>RESTful APIs, C#, ASP.NET, database design, Python</dd>
-              </div>
-              <div>
-                <dt>Tools</dt>
-                <dd>Git and GitHub, VS Code, the command line, Linux</dd>
-              </div>
-            </dl>
-          </div>
+      <section id="about" className="wrap section about">
+        <h2 className="section-title">About</h2>
+        <div>
+          <p>
+            I&apos;m a student software developer from Zuid-Holland. At the moment I&apos;m learning C# and
+            working with APIs and JavaScript, and I&apos;m interested in web development, UI/UX and Linux.
+          </p>
+          <p>
+            I&apos;ve been putting code on GitHub since 2024: mostly small web apps, a Python network tool and
+            a browser userscript. I use HTML, CSS and JavaScript on the front end, C# with ASP.NET and Python
+            on the back end, and Git, VS Code and the command line every day. Away from the keyboard
+            I&apos;m usually gaming or asleep.
+          </p>
         </div>
       </section>
 

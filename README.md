@@ -1,4 +1,4 @@
-# portfolio-v2
+                                                  # portfolio-v2
 
 The portfolio of Joost Schreuders, a student software developer from Zuid-Holland, the Netherlands:
 small apps, useful tools and the occasional game.
@@ -19,10 +19,8 @@ small apps, useful tools and the occasional game.
   Six discs drop in as an opening, a ghost disc follows the column you point at, and the winning four flash.
 - **A work list built from GitHub.** Projects are read live from the GitHub API for `JooostS` and each gets a
   case-study page at `/work/<slug>`. Hovering a row previews the project without leaving the page.
-- **Light and dark mode** that follow the system, built around the mint `#71ffc5` from the profile picture.
-- **Small touches.** The background tone eases between sections as you scroll, an accent picker in the footer
-  recolours the whole site (and remembers the choice), a back-to-top button shows scroll progress, and the
-  email has a copy button. The footer shows the local time in Zuid-Holland.
+- **Light and dark mode** that follow the system: warm paper and warm charcoal, with the mint `#71ffc5` from
+  the profile picture kept for the board, buttons and the active row.
 - **Share images** for the home page and every project, drawn at build time with `next/og`.
 - **Careful with links.** A live demo is only shown if it is publicly reachable, so a deployment behind a
   login wall is hidden instead of sending visitors to a login page.
@@ -32,7 +30,7 @@ small apps, useful tools and the occasional game.
 ## Tech
 
 Next.js 16 (App Router, Turbopack), React 19 and TypeScript. Styling is plain CSS with custom properties, with
-no UI library and no CSS framework. Fonts are Bricolage Grotesque and Newsreader through `next/font`.
+no UI library and no CSS framework. The font is IBM Plex Sans through `next/font`.
 
 ## Getting started
 
@@ -81,7 +79,7 @@ to `CURATED`, keyed by the lowercased repo name, and put a screenshot in `public
 
 ```
 app/
-  layout.tsx              fonts, metadata, theme colours, scroll helpers
+  layout.tsx              font, metadata, theme colours
   page.tsx                home page: hero, work, about, contact
   globals.css             design tokens, light and dark schemes, all styles
   opengraph-image.tsx     share image for the home page
@@ -89,9 +87,7 @@ app/
 components/
   Board.tsx               the Connect Four board
   WorkIndex.tsx           work list with the sticky preview
-  Contact.tsx             contact section (with AccentPicker, CopyEmail and LocalTime)
-  ToneShift.tsx           eases the page background between sections
-  BackToTop.tsx           back-to-top button with a progress ring
+  Contact.tsx             contact section and footer (with CopyEmail)
 lib/
   connect4.ts             game rules and the computer opponent
   github.ts               GitHub data, project copy, link checks

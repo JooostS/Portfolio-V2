@@ -1,48 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Newsreader } from "next/font/google";
-import BackToTop from "../components/BackToTop";
-import ToneShift from "../components/ToneShift";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-display",
-  axes: ["opsz", "wdth"]
+  weight: ["400", "500", "600"],
+  variable: "--font-sans"
 });
 
-const body = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-body",
-  style: ["normal", "italic"]
-});
-
+const title = "Joost Schreuders, student software developer";
 const description =
   "Joost Schreuders is a student software developer from Zuid-Holland who builds small web apps, desktop tools and the occasional game.";
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eef5f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#08110e" }
+    { media: "(prefers-color-scheme: light)", color: "#f5f2ec" },
+    { media: "(prefers-color-scheme: dark)", color: "#151412" }
   ]
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jooosts.nl"),
-  title: "Joost Schreuders, developer",
+  title,
   description,
-  openGraph: { title: "Joost Schreuders, developer", description, siteName: "Joost Schreuders" }
+  openGraph: { title, description, siteName: "Joost Schreuders" }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
-        <div className="progress" aria-hidden="true" />
-        <ToneShift />
-        {children}
-        <BackToTop />
-      </body>
+    <html lang="en" className={sans.variable}>
+      <body>{children}</body>
     </html>
   );
 }
