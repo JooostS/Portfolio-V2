@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jooosts.online"),
+  metadataBase: new URL("https://jooosts.nl"),
   title: "Joost Schreuders, developer",
   description,
   openGraph: { title: "Joost Schreuders, developer", description, siteName: "Joost Schreuders" }

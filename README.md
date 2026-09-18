@@ -109,5 +109,5 @@ The tokens, type scale, components and the reasoning behind them are written up 
 It runs on any host that can run a Node server (`npm run build && npm start`), and on Vercel. The project list
 revalidates every hour, so new repos appear without a redeploy.
 
-Before deploying, set `metadataBase` in `app/layout.tsx` to the real domain (it is currently
-`https://jooosts.online`), so the share images get the right address.
+If you deploy under a different domain, set `metadataBase` in `app/layout.tsx` (it is currently
+`https://jooosts.nl`), so the share images get the right address.
