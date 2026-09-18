@@ -44,7 +44,7 @@ export default async function Page() {
             I&apos;ve been putting code on GitHub since 2024: mostly small web apps, a Python network tool and
             a browser userscript. I use HTML, CSS and JavaScript on the front end, C# with ASP.NET and Python
             on the back end, and Git, VS Code and the command line every day. Away from the keyboard
-            I&apos;m usually gaming or asleep.
+            I&apos;m usually hanging out with friends or asleep.
           </p>
         </div>
       </section>
