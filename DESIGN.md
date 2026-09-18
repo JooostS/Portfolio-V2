@@ -3,8 +3,9 @@
 ## Concept
 
 The hero is a physical Connect Four board in the profile picture's mint `#71ffc5`, because the work started with
-a Connect Four. It plays back. Everything else is plain: warm neutrals, one sans-serif font, hairline dividers.
-Mint is only used for the board, primary buttons, the active work row, link underlines and text selection.
+a Connect Four. It plays back. Everything else is quiet: warm neutrals, one sans-serif font, and tone bands that alternate paper, a slightly
+darker paper, paper again and a dark contact band. Mint is used for the board, primary buttons, the active work
+row, link underlines and text selection, and the visitor can change it in the footer.
 
 The colour scheme follows the visitor's system (`prefers-color-scheme`). There is no toggle.
 
@@ -16,7 +17,9 @@ The colour scheme follows the visitor's system (`prefers-color-scheme`). There i
 | `--on-mint` | `#030b08` | same | Text on any mint surface |
 | `--coral` | `#ff4b3e` | same | Second disc, every second list bullet |
 | `--bg` | `#f5f2ec` | `#151412` | Page |
-| `--sunken` | `#e9e5dc` | `#0f0e0d` | Preview frame |
+| `--alt` | `#ebe6db` | `#1d1b18` | Work section band |
+| `--sunken` | `#ddd8cc` | `#0f0e0d` | Preview frame |
+| `--band-bg` | `#1a1815` | `#0c0b0a` | Contact band, the darkest tone |
 | `--ink` | `#1a1815` | `#ece8e1` | Text |
 | `--muted` | `#5f5a52` | `#a39d92` | Secondary text |
 | `--disc-a` | `#1a1815` | `#eeeae3` | First player's disc (flips so it stays visible) |
@@ -28,24 +31,26 @@ Radii: controls 6px, frames and rows 8px, board 0.3 of a cell.
 
 ## Type
 
-**IBM Plex Sans**, weights 400, 500 and 600. Headings are 600 with -0.025em tracking, everything else is
+**IBM Plex Sans**, weights 400, 500 and 600. Headings are 600 with -0.03em tracking, everything else is
 normal tracking. Sentence case throughout. No all-caps, no eyebrows, no numbered markers.
 
 | Role | Size |
 | --- | --- |
-| Hero heading | 34-56px |
-| Case title | 35-67px |
-| Work title | 22-30px |
-| Email link | 21-32px |
+| Hero heading | 38-74px |
+| Case title | 38-80px |
+| Work title | 26-38px |
+| Email link | 26-67px |
 | Body | 17px, 18px for About and Contact |
 
 ## Layout
 
 - The hero fills the viewport (`.stage.fill`, `100svh`), so the first screen shows only the hero and the Work
   section starts below the fold.
-- Sections are separated by a 1px line inside the content width. About, Contact and the case-study sections share
-  one two-column layout: a small title on the left, text on the right. Below 860px it is one column.
-- There is no grain, glow, gradient or tone change between sections.
+- Sections are separated by tone, not lines: hero on `--bg`, Work on `--alt`, About on `--bg`, Contact on the
+  dark band. The tones are static and do not change on scroll.
+- About, Contact and the case-study sections share one two-column layout: a small title on the left, text on
+  the right. Below 860px it is one column.
+- There is no grain, glow or gradient.
 
 ## Components
 
@@ -58,8 +63,11 @@ normal tracking. Sentence case throughout. No all-caps, no eyebrows, no numbered
   focusing a row fills it mint and crossfades the preview to that project's screenshot. Projects with no
   screenshot show a mint poster with their title and first three features. On touch devices and below 900px the
   preview is removed and each row shows its own thumbnail and summary.
-- **About**: two short paragraphs, no skills table.
-- **Contact**: email as the largest text in the section, a copy button, and GitHub and LinkedIn links.
+- **Work rows** start with a disc, alternating ink and coral like the board.
+- **About**: a large lead sentence and two short paragraphs, no skills table.
+- **Contact band**: email as the largest text, a copy button, and GitHub and LinkedIn links. The footer holds
+  the accent picker (five swatches that change `--mint`, eased over 0.7s and saved in `localStorage`) and the
+  local time in Zuid-Holland, which says "probably asleep" between 23:00 and 07:00.
 - **Case study**: title, lede, actions, framed screenshot, facts, features, optional live embed, next project.
 - **Share images**: `app/opengraph-image.tsx` and `app/work/[slug]/opengraph-image.tsx`.
 
@@ -93,16 +101,19 @@ sections, an accent picker, a scroll progress line, a local-time footer and a ba
 
 Pass 5, in response to "does it look like an AI made it":
 - Removed the parts that read as generated: green-tinted near-black with a glow and grain, the Bricolage and
-  Newsreader pairing with very tight tracking, the tone shift, accent picker, progress line, back-to-top ring,
-  local time and the "latest activity" line.
-- Moved to warm paper and warm charcoal, one font, smaller headings, smaller radii and hairline dividers.
-- Rewrote the hero, About and Contact copy in plain first person, using only facts already on the old site and
-  GitHub. The skills table and the "Want to work together, or have a project in mind?" line are gone.
+  Newsreader pairing with very tight tracking, the scroll tone shift, the progress line and the back-to-top ring.
+- Moved to warm paper and warm charcoal, one font, and rewrote the hero, About and Contact copy in plain first
+  person, using only facts already on the old site and GitHub.
+
+Pass 6, in response to "a little boring, bring the colour changer back":
+- Brought back the accent picker and local time, in a dark contact band.
+- Scaled the type back up, added the Work tone band, the disc markers on work rows and the lead sentence in About.
+- Gave the site itself a case study (`portfolio-v2` in `CURATED`).
 
 Open:
 - The Weather App demo is behind Vercel login. Turn off deployment protection and it will appear on its own.
 - Network Monitor and the YouTube userscript have no screenshot. Network Monitor's table shows devices on your
   network, so use a screenshot with that data blurred or made up: save it in `public/work/` and add an `image`
   entry in `lib/github.ts`.
-- The first work item is the old site, whose screenshot is a neon green look that no longer matches.
+- The jooosts.online item is the old site, whose screenshot is a neon green look that no longer matches.
 - The email address is public. Remove it from `components/Contact.tsx` if you don't want that.

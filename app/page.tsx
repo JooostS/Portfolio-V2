@@ -25,17 +25,20 @@ export default async function Page() {
         </main>
       </div>
 
-      <section id="work" className="wrap section">
-        <h2 className="section-title">Work</h2>
-        <WorkIndex projects={projects} />
-      </section>
+      <div id="work" className="alt">
+        <section className="wrap section">
+          <h2 className="section-title">Work</h2>
+          <WorkIndex projects={projects} />
+        </section>
+      </div>
 
       <section id="about" className="wrap section about">
         <h2 className="section-title">About</h2>
         <div>
+          <p className="about-lead">I&apos;m a student software developer from Zuid-Holland.</p>
           <p>
-            I&apos;m a student software developer from Zuid-Holland. At the moment I&apos;m learning C# and
-            working with APIs and JavaScript, and I&apos;m interested in web development, UI/UX and Linux.
+            At the moment I&apos;m learning C# and working with APIs and JavaScript, and I&apos;m interested
+            in web development, UI/UX and Linux.
           </p>
           <p>
             I&apos;ve been putting code on GitHub since 2024: mostly small web apps, a Python network tool and

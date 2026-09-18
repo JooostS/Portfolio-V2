@@ -20,7 +20,9 @@ small apps, useful tools and the occasional game.
 - **A work list built from GitHub.** Projects are read live from the GitHub API for `JooostS` and each gets a
   case-study page at `/work/<slug>`. Hovering a row previews the project without leaving the page.
 - **Light and dark mode** that follow the system: warm paper and warm charcoal, with the mint `#71ffc5` from
-  the profile picture kept for the board, buttons and the active row.
+  the profile picture on the board, buttons and the active row.
+- **A colour picker.** Five accents in the footer recolour the board, buttons and highlights, ease between
+  colours and are remembered. The footer also shows the local time in Zuid-Holland.
 - **Share images** for the home page and every project, drawn at build time with `next/og`.
 - **Careful with links.** A live demo is only shown if it is publicly reachable, so a deployment behind a
   login wall is hidden instead of sending visitors to a login page.
@@ -87,7 +89,7 @@ app/
 components/
   Board.tsx               the Connect Four board
   WorkIndex.tsx           work list with the sticky preview
-  Contact.tsx             contact section and footer (with CopyEmail)
+  Contact.tsx             dark contact band and footer (with AccentPicker, CopyEmail and LocalTime)
 lib/
   connect4.ts             game rules and the computer opponent
   github.ts               GitHub data, project copy, link checks

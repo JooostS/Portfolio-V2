@@ -118,6 +118,20 @@ const CURATED: Record<string, Curated> = {
     features: [],
     stack: ["HTML", "CSS", "JavaScript"],
     liveLabel: "Visit the site"
+  },
+  "portfolio-v2": {
+    image: { src: "/work/portfolio-v2.png", width: 1440, height: 900, alt: "The home page: a headline next to a playable Connect Four board on a warm off-white background." },
+    title: "jooosts.nl",
+    kind: "Website",
+    summary: "This site. The hero is a Connect Four board you can play against the computer.",
+    features: [
+      "Play Connect Four against a minimax opponent, or against a second player",
+      "The work list is read from the GitHub API",
+      "Follows your light or dark setting",
+      "Pick an accent colour in the footer"
+    ],
+    stack: ["Next.js", "React", "TypeScript", "CSS"],
+    liveLabel: "Visit the site"
   }
 };
 
